@@ -130,4 +130,3 @@ const cardRotateLeft = () => {
 
 leftArrowButton.addEventListener('click', disableTHPLink, true)
 leftArrowButton.addEventListener('click', cardRotateLeft)
-
