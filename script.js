@@ -70,27 +70,39 @@ nav.addEventListener("dblclick", bootStrapToggle)
 /**
  * Cards reduction
 */
-const allCards = document.querySelectorAll(".card")[0]
-const cardText = allCards.querySelector(".card-text")
-const cardImg = allCards.querySelector(".card-img-top")
-const originalText = cardText.innerHTML
+const allCards = document.querySelectorAll(".card")
 
-// console.log(cardImg)
-
-for (let i = 0; i < 9; i++) {
+for (let i = 0; i < allCards.length; i++) {
+    let allCards = document.querySelectorAll(".card")[i]
+    const cardText = allCards.querySelector(".card-text")
+    const cardImg = allCards.querySelector(".card-img-top")
+    const originalText = cardText.innerHTML
     
+    const reduceCard = () => {
+        cardText.innerHTML = ""
+        cardImg.style.width = "20%"
+    }
+    
+    const reset = () => {
+        cardText.innerHTML = originalText
+        cardImg.style.width = ""
+    }
+    
+    allCards.addEventListener('mouseover', reduceCard)
+    allCards.addEventListener('mouseout', reset)
+}    
+
+/**
+ * Rotate the Cards
+ */
+const jumbo = document.querySelector(".jumbotron")
+const rightArrowButton = jumbo.querySelector(".btn-secondary")
+
+const row = document.querySelector(".album .row")
+// console.log(row.children)
+
+const cardRotate = () => {
+    row.insertBefore(row.lastElementChild, row.firstElementChild);
 }
 
-const reduceCard = () => {
-    cardText.innerHTML = ""
-    cardImg.style.width = "20%"
-}
-
-const reset = () => {
-    cardText.innerHTML = originalText
-    cardImg.style.width = ""
-}
-
-allCards.addEventListener('mouseover', reduceCard)
-allCards.addEventListener('mouseout', reset)
-
+rightArrowButton.addEventListener('click', cardRotate)
