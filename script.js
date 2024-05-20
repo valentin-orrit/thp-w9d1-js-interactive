@@ -11,6 +11,7 @@ const logClique = () => {
 
 footer.addEventListener("click", logClique)
 
+
 /**
  * Burger Menu
  */
@@ -23,6 +24,7 @@ const burgerToggle = () => {
 
 burgerButton.addEventListener("click", burgerToggle)
 
+
 /**
  * Red edit on first card
  */
@@ -34,6 +36,7 @@ const textToRed = () => {
 }
 
 editButton.addEventListener("click", textToRed)
+
 
 /**
  * Green back&forth edit on second card
@@ -51,6 +54,7 @@ const textToGreen = () => {
 
 secondEditButton.addEventListener("click", textToGreen)
 
+
 /**
  * Destroy Bootstrap
  */
@@ -66,6 +70,7 @@ const bootStrapToggle = () => {
 }
 
 nav.addEventListener("dblclick", bootStrapToggle)
+
 
 /**
  * Cards reduction
@@ -92,6 +97,7 @@ for (let i = 0; i < allCards.length; i++) {
     allCards.addEventListener('mouseout', reset)
 }    
 
+
 /**
  * Rotate the Cards
  */
@@ -99,10 +105,29 @@ const jumbo = document.querySelector(".jumbotron")
 const rightArrowButton = jumbo.querySelector(".btn-secondary")
 
 const row = document.querySelector(".album .row")
-// console.log(row.children)
 
-const cardRotate = () => {
-    row.insertBefore(row.lastElementChild, row.firstElementChild);
+const cardRotateRight = () => {
+    row.insertBefore(row.lastElementChild, row.firstElementChild)
 }
 
-rightArrowButton.addEventListener('click', cardRotate)
+rightArrowButton.addEventListener('click', cardRotateRight)
+
+
+/**
+ * Rotate the Cards pt.II
+*/
+const leftArrowButton = jumbo.querySelector(".btn-primary")
+
+// console.log(leftArrowButton.href)
+
+const disableTHPLink = (event) => {
+    event.preventDefault()
+}
+
+const cardRotateLeft = () => {
+    row.insertBefore(row.firstElementChild, row.lastElementChild.nextSibling)
+}
+
+leftArrowButton.addEventListener('click', disableTHPLink, true)
+leftArrowButton.addEventListener('click', cardRotateLeft)
+
