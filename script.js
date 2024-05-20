@@ -52,11 +52,10 @@ const textToGreen = () => {
 secondEditButton.addEventListener("click", textToGreen)
 
 /**
- * destroy Bootstrap
+ * Destroy Bootstrap
  */
 const nav = document.getElementsByClassName("navbar navbar-dark bg-dark box-shadow")[0]
 const bootStrapLink = document.getElementsByTagName("link")[0]
-// console.log(bootStrapLink)
 
 const bootStrapToggle = () => {
     if (bootStrapLink.disabled === false) {
@@ -67,3 +66,31 @@ const bootStrapToggle = () => {
 }
 
 nav.addEventListener("dblclick", bootStrapToggle)
+
+/**
+ * Cards reduction
+*/
+const allCards = document.querySelectorAll(".card")[0]
+const cardText = allCards.querySelector(".card-text")
+const cardImg = allCards.querySelector(".card-img-top")
+const originalText = cardText.innerHTML
+
+// console.log(cardImg)
+
+for (let i = 0; i < 9; i++) {
+    
+}
+
+const reduceCard = () => {
+    cardText.innerHTML = ""
+    cardImg.style.width = "20%"
+}
+
+const reset = () => {
+    cardText.innerHTML = originalText
+    cardImg.style.width = ""
+}
+
+allCards.addEventListener('mouseover', reduceCard)
+allCards.addEventListener('mouseout', reset)
+
