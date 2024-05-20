@@ -34,3 +34,36 @@ const textToRed = () => {
 }
 
 editButton.addEventListener("click", textToRed)
+
+/**
+ * Green back&forth edit on second card
+ */
+const secondCard = document.getElementsByClassName("card mb-4 box-shadow")[1]
+const secondEditButton = secondCard.querySelectorAll("button")[1]
+
+const textToGreen = () => {
+    if (secondEditButton.style.color === '') {
+        secondEditButton.style.color = 'green'
+    } else {
+        secondEditButton.style.color = ''
+    }
+}
+
+secondEditButton.addEventListener("click", textToGreen)
+
+/**
+ * destroy Bootstrap
+ */
+const nav = document.getElementsByClassName("navbar navbar-dark bg-dark box-shadow")[0]
+const bootStrapLink = document.getElementsByTagName("link")[0]
+// console.log(bootStrapLink)
+
+const bootStrapToggle = () => {
+    if (bootStrapLink.disabled === false) {
+        bootStrapLink.disabled = true
+    } else {
+        bootStrapLink.disabled = false
+    }
+}
+
+nav.addEventListener("dblclick", bootStrapToggle)
